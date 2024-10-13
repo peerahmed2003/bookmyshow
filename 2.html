@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Entertainment Hub</title>
+  <title>Sign In Block</title>
+<style>
+    .signin-block {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #ff0000; /* Red color */
+      color: #ffffff; /* White text */
+      border-radius: 5px;
+    }
+</style>
+<style>
+  table {
+      border-collapse: collapse;
+      margin: auto;
+  }
+  td {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 12px;
+  }
+  .available {
+      background-color: lightgreen;
+  }
+  .reserved {
+      background-color: lightcoral;
+  }
+</style>
+<style>
+    .hamburger {
+        float:inline-end;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .change .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .change .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .change .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+</style>
+  <style>
+    /* Basic styling for a layout similar to BookMyShow's homepage */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .logo {
+      float: left;
+      font-size: 24px;
+    }
+    .search-bar {
+    width: 750px; 
+    height: 40px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 20px; 
+    outline: none; 
+}
+.search-bar input {
+      /* Add your styles here */
+      width: 80%;
+    }
+
+
+
+  .available:hover {
+    background-color: green;
+  }
+
+  .reserved:hover {
+    background-color: brown;
+  }
+
+.search-bar:focus {
+    border-color: #007bff; 
+}
+    .main-content {
+      padding: 20px;
+    }
+    .category-section {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    .category-title {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .movie-card {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      width: 200px;
+      text-align: center;
+    }
+    .movie-card img {
+      width: 100%;
+      height: 150px;
+    }
+    .movie-card h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .logo
+    {
+        width:100%;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+
+    }
+    .list1
+    {
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+    
+  </style>
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+  }
+
+  .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color:grey;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+      font-size: 24px;
+      margin-top: 0;
+  }
+
+  h3 {
+      font-size: 20px;
+      margin-top: 0;
+  }
+
+  p {
+      margin-top: 5px;
+  }
+
+  .section {
+      margin-bottom: 20px;
+  }
+
+  .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .movies-list {
+      column-count: 2;
+      column-gap: 20px;
+  }
+
+  .genre-list, .language-list {
+      display: inline-block;
+      margin-right: 10px;
+  }
+  .moviename{
+    background-image: linear-gradient(90deg, rgb(26, 26, 26) 24.97%, rgb(26, 26, 26) 38.3%, rgba(26, 26, 26, 0.04) 97.47%, rgb(26, 26, 26) 100%), url('movielist.jpg');
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  <title>Movie Screen</title>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .big-screen {
+    background-color: lightgray;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    height: 400px; /* Adjust height as needed */
+  }
+</style>
+</style>
+</head>
+<body>
+  <header class="header">
+    <img src="bookmyshow.png" alt="BookMyShow logo" class="book">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for movies, events...">
+      <button type="button">Search</button>
+    <div class="signin-block">
+        <a href="#" class="signin-link">Sign In</a>
+    </div>
+    <div class="hamburger" onclick="myFunction(this)">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    
+    </div>
+  </header><br>
+  <ul class="list1">
+    <li>Movies</li>
+    <li>Stream</li>
+    <li>Events </li>
+    <li>Plays</li>
+    <li>Sports</li> 
+    <li>Activities</li>
+    <li>List your show</li>
+    <li>Offers</li>
+    <li>Gift Cards</li>
+  </ul>
+  <div class="moviename">
+    <h1>Movie Tickets</h1>
+    <p>Movie Description</p>
+    <p>Genre: Action, Adventure, Sci-Fi</p>
+    <p>Language: Telugu,English,Hindi</p>
+    <p>Duration: 2h 35m</p>
+    <p>Release Date: 2023-12-31</p>
+  </div>
+  <body>
+    <h1>Movie Theater Seating:</h1>
+    <table>
+        <tbody>
+            <!-- Table rows -->
+            <tr>
+                <td>Seats</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <!-- Add more seat numbers -->
+            </tr>
+            <!-- Add more rows -->
+            <tr>
+              <td>A</td>
+              <td class="available"><button>A1</button></td>
+              <td class="reserved"><button>A2</button></td>
+              <td class="available"><button>A3</button></td>
+              <td class="available"><button>A4</button></td>
+              <td class="available"><button>A5</button></td>
+              <td class="available"><button>A6</button></td>
+              <td class="available"><button>A7</button></td>
+              <td class="available"><button>A8</button></td>
+              <td class="available"><button>A9</button></td>
+              <td class="reserved"><button>A10</button></td>
+              <td class="available"><button>A11</button></td>
+              <td class="available"><button>A12</button></td>
+              <td class="available"><button>A13</button></td>
+              <td class="reserved"><button>A14</button></td>
+              <td class="available"><button>A15</button></td>
+              <td class="available"><button>A16</button></td>
+              <td class="available"><button>A17</button></td>
+              <td class="available"><button>A18</button></td>
+              <td class="available"><button>A19</button></td>
+              <td class="reserved"><button>A20</button></td>
+              <td class="available"><button>A21</button></td>
+              <td class="available"><button>A22</button></td>
+              <td class="available"><button>A23</button></td>
+              <td class="available"><button>A24</button></td>
+              <td class="reserved"><button>A25</button></td>
+              <!-- Add more seat statuses -->
+            </tr>
+            <tr>
+              <td>B</td>
+              <td class="available"><button>B1</button></td>
+              <td class="available"><button>B2</button></td>
+              <td class="available"><button>B3</button></td>
+              <td class="available"><button>B4</button></td>
+              <td class="reserved"><button>B5</button></td>
+              <td class="available"><button>B6</button></td>
+              <td class="available"><button>B7</button></td>
+              <td class="available"><button>B8</button></td>
+              <td class="available"><button>B9</button></td>
+              <td class="available"><button>B10</button></td>
+              <td class="available"><button>B11</button></td>
+              <td class="reserved"><button>B12</button></td>
+              <td class="available"><button>B13</button></td>
+              <td class="available"><button>B14</button></td>
+              <td class="available"><button>B15</button></td>
+              <td class="reserved"><button>B16</button></td>
+              <td class="available"><button>B17</button></td>
+              <td class="available"><button>B18</button></td>
+              <td class="available"><button>B19</button></td>
+              <td class="available"><button>B20</button></td>
+              <td class="available"><button>B21</button></td>
+              <td class="available"><button>B22</button></td>
+              <td class="available"><button>B23</button></td>
+              <td class="reserved"><button>B24</button></td>
+              <td class="available"><button>B25</button></td>
+            </tr>
+
+              <!-- Add more seat statuses -->
+          </tr>
+        <tr>
+            <td>C</td>
+            <td class="available"><button>C1</button></td>
+            <td class="available"><button>C2</button></td>
+            <td class="available"><button>C3</button></td>
+            <td class="available"><button>C4</button></td>
+            <td class="available"><button>C5</button></td>
+            <td class="available"><button>C6</button></td>
+            <td class="available"><button>C7</button></td>
+            <td class="available"><button>C8</button></td>
+            <td class="available"><button>C9</button></td>
+            <td class="available"><button>C10</button></td>
+            <td class="available"><button>C11</button></td>
+            <td class="available"><button>C12</button></td>
+            <td class="available"><button>C13</button></td>
+            <td class="available"><button>C14</button></td>
+            <td class="available"><button>C15</button></td>
+            <td class="available"><button>C16</button></td>
+            <td class="available"><button>C17</button></td>
+            <td class="available"><button>C18</button></td>
+            <td class="available"><button>C19</button></td>
+            <td class="available"><button>C20</button></td>
+            <td class="available"><button>C21</button></td>
+            <td class="available"><button>C22</button></td>
+            <td class="available"><button>C23</button></td>
+            <td class="available"><button>C24</button></td>
+            <td class="available"><button>C25</button></td>
+          <!-- Add more seat statuses -->
+        </tr>
+        <tr>
+          <td>D</td>
+          <td class="available"><button>D1</button></td>
+          <td class="reserved"><button>D2</button></td>
+          <td class="available"><button>D3</button></td>
+          <td class="available"><button>D4</button></td>
+          <td class="reserved"><button>D5</button></td>
+          <td class="available"><button>D6</button></td>
+          <td class="available"><button>D7</button></td>
+          <td class="available"><button>D8</button></td>
+          <td class="reserved"><button>D9</button></td>
+          <td class="reserved"><button>D10</button></td>
+          <td class="reserved"><button>D11</button></td>
+          <td class="available"><button>D12</button></td>
+          <td class="available"><button>D13</button></td>
+          <td class="available"><button>D14</button></td>
+          <td class="available"><button>D15</button></td>
+          <td class="available"><button>D16</button></td>
+          <td class="reserved"><button>D17</button></td>
+          <td class="available"><button>D18</button></td>
+          <td class="available"><button>D19</button></td>
+          <td class="available"><button>D20</button></td>
+          <td class="available"><button>D21</button></td>
+          <td class="available"><button>D22</button></td>
+          <td class="available"><button>D23</button></td>
+          <td class="available"><button>D24</button></td>
+          <td class="available"><button>D25</button></td>
+        </tr>
+        <tr>
+          <td>E</td>
+          <td class="available"><button>E1</button></td>
+          <td class="reserved"><button>E2</button></td>
+          <td class="available"><button>E3</button></td>
+          <td class="available"><button>E4</button></td>
+          <td class="available"><button>E5</button></td>
+          <td class="reserved"><button>E6</button></td>
+          <td class="available"><button>E7</button></td>
+          <td class="available"><button>E8</button></td>
+          <td class="reserved"><button>E9</button></td>
+          <td class="available"><button>E10</button></td>
+          <td class="reserved"><button>E11</button></td>
+          <td class="available"><button>E12</button></td>
+          <td class="available"><button>E13</button></td>
+          <td class="reserved"><button>E14</button></td>
+          <td class="available"><button>E15</button></td>
+          <td class="available"><button>E16</button></td>
+          <td class="available"><button>E17</button></td>
+          <td class="available"><button>E18</button></td>
+          <td class="available"><button>E19</button></td>
+          <td class="available"><button>E20</button></td>
+          <td class="available"><button>E21</button></td>
+          <td class="available"><button>E22</button></td>
+          <td class="available"><button>E23</button></td>
+          <td class="available"><button>E24</button></td>
+          <td class="available"><button>E25</button></td>
+
+        </tr>
+        <tr>
+          <td>F</td>
+          <td class="available"><button>F1</button></td>
+          <td class="available"><button>F2</button></td>
+          <td class="available"><button>F3</button></td>
+          <td class="available"><button>F4</button></td>
+          <td class="reserved"><button>F5</button></td>
+          <td class="available"><button>F6</button></td>
+          <td class="available"><button>F7</button></td>
+          <td class="available"><button>F8</button></td>
+          <td class="available"><button>F9</button></td>
+          <td class="available"><button>F10</button></td>
+          <td class="reserved"><button>F11</button></td>
+          <td class="available"><button>F12</button></td>
+          <td class="available"><button>F13</button></td>
+          <td class="reserved"><button>F14</button></td>
+          <td class="available"><button>F15</button></td>
+          <td class="reserved"><button>F16</button></td>
+          <td class="available"><button>F17</button></td>
+          <td class="available"><button>F18</button></td>
+          <td class="available"><button>F19</button></td>
+          <td class="available"><button>F20</button></td>
+          <td class="reserved"><button>F21</button></td>
+          <td class="available"><button>F22</button></td>
+          <td class="available"><button>F23</button></td>
+          <td class="available"><button>F24</button></td>
+          <td class="available"><button>F25</button></td>
+        </tr>
+        <tr>
+          <td>G</td>
+          <td class="available"><button>G1</button></td>
+          <td class="available"><button>G2</button></td>
+          <td class="available"><button>G3</button></td>
+          <td class="available"><button>G4</button></td>
+          <td class="available"><button>G5</button></td>
+          <td class="available"><button>G6</button></td>
+          <td class="available"><button>G7</button></td>
+          <td class="available"><button>G8</button></td>
+          <td class="reserved"><button>G9</button></td>
+          <td class="available"><button>G10</button></td>
+          <td class="available"><button>G11</button></td>
+          <td class="available"><button>G12</button></td>
+          <td class="available"><button>G13</button></td>
+          <td class="available"><button>G14</button></td>
+          <td class="available"><button>G15</button></td>
+          <td class="available"><button>G16</button></td>
+          <td class="available"><button>G17</button></td>
+          <td class="available"><button>G18</button></td>
+          <td class="available"><button>G19</button></td>
+          <td class="available"><button>G20</button></td>
+          <td class="available"><button>G21</button></td>
+          <td class="available"><button>G22</button></td>
+          <td class="available"><button>G23</button></td>
+          <td class="available"><button>G24</button></td>
+          <td class="available"><button>G25</button></td>
+          <!-- Add more seat statuses -->
+        </tr>
+        <tr>
+                  <td>H</td>
+                  <td class="available"><button>H1</button></td>
+                  <td class="reserved"><button>H2</button></td>
+                  <td class="reserved"><button>H3</button></td>
+                  <td class="available"><button>H4</button></td>
+                  <td class="available"><button>H5</button></td>
+                  <td class="available"><button>H6</button></td>
+                  <td class="available"><button>H7</button></td>
+                  <td class="available"><button>H8</button></td>
+                  <td class="available"><button>H9</button></td>
+                  <td class="available"><button>H10</button></td>
+                  <td class="available"><button>H11</button></td>
+                  <td class="available"><button>H12</button></td>
+                  <td class="available"><button>H13</button></td>
+                  <td class="available"><button>H14</button></td>
+                  <td class="available"><button>H15</button></td>
+                  <td class="available"><button>H16</button></td>
+                  <td class="available"><button>H17</button></td>
+                  <td class="available"><button>H18</button></td>
+                  <td class="available"><button>H19</button></td>
+                  <td class="reserved"><button>H20</button></td>
+                  <td class="available"><button>H21</button></td>
+                  <td class="available"><button>H22</button></td>
+                  <td class="available"><button>H23</button></td>
+                  <td class="available"><button>H24</button></td>
+                  <td class="reserved"><button>H25</button></td>
+              
+                  <!-- Add more seat statuses -->
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td class="available"><button>I1</button></td>
+                  <td class="available"><button>I2</button></td>
+                  <td class="available"><button>I3</button></td>
+                  <td class="available"><button>I4</button></td>
+                  <td class="available"><button>I5</button></td>
+                  <td class="available"><button>I6</button></td>
+                  <td class="available"><button>I7</button></td>
+                  <td class="reserved"><button>I8</button></td>
+                  <td class="available"><button>I9</button></td>
+                  <td class="available"><button>I10</button></td>
+                  <td class="available"><button>I11</button></td>
+                  <td class="available"><button>I12</button></td>
+                  <td class="available"><button>I13</button></td>
+                  <td class="available"><button>I14</button></td>
+                  <td class="available"><button>I15</button></td>
+                  <td class="available"><button>I16</button></td>
+                  <td class="available"><button>I17</button></td>
+                  <td class="available"><button>I18</button></td>
+                  <td class="available"><button>I19</button></td>
+                  <td class="available"><button>I20</button></td>
+                  <td class="available"><button>I21</button></td>
+                  <td class="reserved"><button>I22</button></td>
+                  <td class="reserved"><button>I23</button></td>
+                  <td class="available"><button>I24</button></td>
+                  <td class="available"><button>I25</button></td>
+              
+                  <!-- Add more seat statuses -->
+                </tr>
+                <tr>
+                  <td>J</td>
+                  <td class="available"><button>J1</button></td>
+                  <td class="reserved"><button>J2</button></td>
+                  <td class="available"><button>J3</button></td>
+                  <td class="available"><button>J4</button></td>
+                  <td class="available"><button>J5</button></td>
+                  <td class="available"><button>J6</button></td>
+                  <td class="available"><button>J7</button></td>
+                  <td class="available"><button>J8</button></td>
+                  <td class="available"><button>J9</button></td>
+                  <td class="reserved"><button>J10</button></td>
+                  <td class="available"><button>J11</button></td>
+                  <td class="reserved"><button>J12</button></td>
+                  <td class="available"><button>J13</button></td>
+                  <td class="available"><button>J14</button></td>
+                  <td class="available"><button>J15</button></td>
+                  <td class="reserved"><button>J16</button></td>
+                  <td class="available"><button>J17</button></td>
+                  <td class="available"><button>J18</button></td>
+                  <td class="available"><button>J19</button></td>
+                  <td class="available"><button>J20</button></td>
+                  <td class="available"><button>J21</button></td>
+                  <td class="available"><button>J22</button></td>
+                  <td class="available"><button>J23</button></td>
+                  <td class="reserved"><button>J24</button></td>
+                  <td class="available"><button>J25</button></td>
+              
+                  <!-- Add more seat statuses -->
+                </tr>
+                <tr>
+                  <td>K</td>
+                  <td class="available"><button>K1</button></td>
+                  <td class="available"><button>K2</button></td>
+                  <td class="available"><button>K3</button></td>
+                  <td class="available"><button>K4</button></td>
+                  <td class="reserved"><button>K5</button></td>
+                  <td class="available"><button>K6</button></td>
+                  <td class="available"><button>K7</button></td>
+                  <td class="available"><button>K8</button></td>
+                  <td class="available"><button>K9</button></td>
+                  <td class="available"><button>K10</button></td>
+                  <td class="available"><button>K11</button></td>
+                  <td class="available"><button>K12</button></td>
+                  <td class="available"><button>K13</button></td>
+                  <td class="reserved"><button>K14</button></td>
+                  <td class="available"><button>K15</button></td>
+                  <td class="available"><button>K16</button></td>
+                  <td class="available"><button>K17</button></td>
+                  <td class="reserved"><button>K18</button></td>
+                  <td class="available"><button>K19</button></td>
+                  <td class="available"><button>K20</button></td>
+                  <td class="available"><button>K21</button></td>
+                  <td class="available"><button>K22</button></td>
+                  <td class="reserved"><button>K23</button></td>
+                  <td class="available"><button>K24</button></td>
+                  <td class="available"><button>K25</button></td>
+                  
+                  <!-- Add more seat statuses -->
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td class="available"><button>L1</button></td>
+                  <td class="available"><button>L2</button></td>
+                  <td class="available"><button>L3</button></td>
+                  <td class="available"><button>L4</button></td>
+                  <td class="available"><button>L5</button></td>
+                  <td class="available"><button>L6</button></td>
+                  <td class="available"><button>L7</button></td>
+                  <td class="reserved"><button>L8</button></td>
+                  <td class="available"><button>L9</button></td>
+                  <td class="available"><button>L10</button></td>
+                  <td class="available"><button>L11</button></td>
+                  <td class="available"><button>L12</button></td>
+                  <td class="available"><button>L13</button></td>
+                  <td class="available"><button>L14</button></td>
+                  <td class="available"><button>L15</button></td>
+                  <td class="available"><button>L16</button></td>
+                  <td class="available"><button>L17</button></td>
+                  <td class="reserved"><button>L18</button></td>
+                  <td class="available"><button>L19</button></td>
+                  <td class="available"><button>L20</button></td>
+                  <td class="available"><button>L21</button></td>
+                  <td class="available"><button>L22</button></td>
+                  <td class="reserved"><button>L23</button></td>
+                  <td class="available"><button>L24</button></td>
+                  <td class="available"><button>L25</button></td>
+                  <!-- Add more seat statuses -->
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td class="available"><button>M1</button></td>
+                  <td class="reserved"><button>M2</button></td>
+                  <td class="available"><button>M3</button></td>
+                  <td class="available"><button>M4</button></td>
+                  <td class="available"><button>M5</button></td>
+                  <td class="available"><button>M6</button></td>
+                  <td class="available"><button>M7</button></td>
+                  <td class="available"><button>M8</button></td>
+                  <td class="available"><button>M9</button></td>
+                  <td class="available"><button>M10</button></td>
+                  <td class="available"><button>M11</button></td>
+                  <td class="available"><button>M12</button></td>
+                  <td class="available"><button>M13</button></td>
+                  <td class="reserved"><button>M14</button></td>
+                  <td class="reserved"><button>M15</button></td>
+                  <td class="available"><button>M16</button></td>
+                  <td class="available"><button>M17</button></td>
+                  <td class="available"><button>M18</button></td>
+                  <td class="available"><button>M19</button></td>
+                  <td class="available"><button>M20</button></td>
+                  <td class="available"><button>M21</button></td>
+                  <td class="available"><button>M22</button></td>
+                  <td class="available"><button>M23</button></td>
+                  <td class="available"><button>M24</button></td>
+                  <td class="available"><button>M25</button></td>
+              
+                  <!-- Add more seat statuses -->
+                </tr>
+        
+        
+
+            <!-- Add more rows -->
+        </tbody>
+        
+    </table>
+    <div class="big-screen">
+      <h2 style="color: black;">Big Screen</h2>
+      <p style="color: black;">This is the big screen in the movie theater.</p>
+    </div>
+
+</body>
+</html>

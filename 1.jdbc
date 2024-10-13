@@ -1,0 +1,37 @@
+import java.sql.*;
+
+public class app{
+
+    public static void main(String[] args) throws Exception {
+        Connection connect = null;
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        connect = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "qwerty");
+        Statement statement = connect.createStatement();
+        statement.execute("create database if not exists cse");
+        statement.execute("use cse");
+        statement.execute("create table college3 (s_id integer, s_name varchar(20), s_sec varchar(5) )");
+        statement.execute("insert into college3 values(11,'Satish','4')");
+        statement.execute("insert into college3 values(12,'Ramesh','4')");
+        statement.execute("insert into college3 values(13,'Ravi','3')");
+        statement.execute("insert into college3 values(14,'Suresh','3')");
+
+        String sql = "update student set s_name='ahmed' where s_id=1";
+        statement.executeUpdate(sql);
+
+        String sql="delete from student where s_id=2";
+        statement.executeUpdate(sql);
+
+        ResultSet resultSet = statement.executeQuery("select * from college2");
+        while(resultSet.next()){
+            System.out.println("Student ID: " + resultSet.getString(1));
+            System.out.println("Student Name: " + resultSet.getString(2));
+            System.out.println("Student Section: " + resultSet.getString(3));
+            System.out.println();
+        }
+        // Close resources
+        resultSet.close();
+        statement.close();
+        connect.close();
+    }
+}

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Entertainment Hub</title>
+<title>Sign In Block</title>
+<style>
+    .main-content {
+      padding: 20px;
+    }
+    .category-section {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    .category-title {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .movie-card {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      width: 200px;
+      text-align: center;
+    }
+    .movie-card img {
+      width: 100%;
+      height: 150px;
+    }
+    .movie-card h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .logo
+    {
+        width:100%;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+
+    }
+    .list1
+    {
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+  .signin-block {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #ff0000; /* Red color */
+      color: #ffffff; /* White text */
+      border-radius: 5px;
+    
+  }
+</style>
+<style>
+  .hamburger {
+      float:inline-end;
+      display: inline-block;
+      cursor: pointer;
+  }
+
+  .bar {
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+  }
+
+  .change .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .change .bar:nth-child(2) {
+      opacity: 0;
+  }
+
+  .change .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+  }
+</style>
+<style>
+  /* Basic styling for a layout similar to BookMyShow's homepage */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  .logo {
+    float: left;
+    font-size: 24px;
+  }
+  .search-bar {
+  width: 750px; 
+  height: 40px; 
+  padding: 5px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 20px; 
+  outline: none; 
+}
+  .search-bar input {
+    /* Add your styles here */
+    width: 80%;
+  }
+
+.search-bar:focus {
+  border-color: #007bff; 
+}
+  .main-content {
+    padding: 20px;
+  }
+  .category-section {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+      }
+      .category-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      .movie-card {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        width: 200px;
+        text-align: center;
+      }
+      .movie-card img {
+        width: 100%;
+        height: 150px;
+      }
+      .movie-card h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      .logo
+      {
+          width:100%;
+      }
+      .header{
+          display: flex;
+          align-items: center;
+
+      }
+      .list1
+      {
+          display: flex;
+          justify-content: space-evenly;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          background-color: #f5f5f5;
+      }
+      
+    </style>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color:grey;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    p {
+        margin-top: 5px;
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .movies-list {
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    .genre-list, .language-list {
+        display: inline-block;
+        margin-right: 10px;
+    }
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f5f5f5;
+      }
+
+      .container {
+          max-width: 800px;
+          margin: 0 auto;
+          background-color:grey;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+          font-size: 24px;
+          margin-top: 0;
+      }
+
+      h3 {
+          font-size: 20px;
+          margin-top: 0;
+      }
+
+      p {
+          margin-top: 5px;
+      }
+
+      .section {
+          margin-bottom: 20px;
+      }
+
+      .section-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+
+      .movies-list {
+          column-count: 2;
+          column-gap: 20px;
+      }
+
+      .genre-list, .language-list {
+          display: inline-block;
+          margin-right: 10px;
+      }
+      .moviename{
+        background-image: linear-gradient(90deg, rgb(26, 26, 26) 24.97%, rgb(26, 26, 26) 38.3%, rgba(26, 26, 26, 0.04) 97.47%, rgb(26, 26, 26) 100%), url('movielist.jpg');
+        color: white;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+      }
+    </style>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .button {
+          background-color: red;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+      </style>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f0f0f0;
+        }
+        .cast-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 20px;
+        }
+        .cast-member {
+          text-align: center;
+          margin: 10px;
+        }
+        .cast-member img {
+          border-radius: 70%;
+          max-width: 150px;
+          border: 5px solid #333;
+          margin-bottom: 3px;
+        }
+        .cast-member p {
+          margin: 0;
+        }
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align:left-end ;
+      }
+      .rating {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .thumbs-up {
+        font-size: 48px;
+        color:green; /* Green color */
+      }
+      </style>
+      <title>Movie Crew</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .crew-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 20px;
+        }
+        .crew-member {
+          text-align: center;
+          width: 200px;
+        }
+        .crew-image {
+          border-radius: 70%;
+          max-width: 150px;
+          border: 5px solid #333;
+          margin-bottom: 3px;
+        }
+      </style>
+    </head>
+    <body>
+    <header class="header">
+      <img src="bookmyshow.png" alt="BookMyShow logo" class="book">
+      <div class="search-bar">
+        <input type="text" placeholder="Search for movies, events...">
+        <button type="button">Search</button>
+      <div class="signin-block">
+          <a href="#" class="signin-link">Sign In</a>
+      </div>
+      <div class="hamburger" onclick="myFunction(this)">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      
+      </div>
+    </header><br>
+    <ul class="list1">
+      <li>Movies</li>
+      <li>Stream</li>
+      <li>Events </li>
+      <li>Plays</li>
+      <li>Sports</li> 
+      <li>Activities</li>
+      <li>List your show</li>
+      <li>Offers</li>
+      <li>Gift Cards</li>
+    </ul>
+    <div class="moviename">
+        <h1>Movies:</h1>
+        <p>Movie Description <span class="rating">
+            <span class="thumbs-up">&#128077;</span>
+            <span>9.5/10</span>
+        </span></p>
+        <p>Genre: Action, Adventure, Sci-Fi</p>
+        <p>Language: Telugu,English,Hindi</p>
+        <p>Duration: 2h 35m</p>
+        <p>Release Date: 2023-12-31</p>
+        <a href="2.html" class="button">Book Tickets</a>
+        
+      </div>
+    <title>Movie Cast</title>
+    </head>
+    <body>
+    <h1>Movie Cast:</h1>
+    <div class="cast-container">
+    <div class="cast-member">
+        <img src="chiru.jpeg" alt="Actor 1">
+        <p>Chiranjeevi</p>
+    </div>
+    <div class="cast-member">
+        <img src="pawan kalyan.jpeg" alt="Actor 7">
+        <p>Pawan Kalyan</p>
+      </div>
+      <div class="cast-member">
+        <img src="ram charan.jpeg" alt="Actor 2">
+        <p>Ram Charan</p>
+      </div>
+      <div class="cast-member">
+        <img src="allu arjun.jpeg" alt="Actor 3">
+        <p>Allu Arjun</p>
+      </div>
+      <div class="cast-member">
+        <img src="prabhas.jpeg" alt="Actor 4">
+        <p>Prabhas</p>
+      </div>
+      <div class="cast-member">
+        <img src="ntr.jpeg" alt="Actor 5">
+        <p>NTR</p>
+      </div>
+      <div class="cast-member">
+        <img src="mahesh babu.jpeg" alt="Actor 6">
+        <p>Mahesh Babu</p>
+      </div>
+      <div class="cast-member">
+        <img src="rajinikanth.jpeg" alt="Actor 7">
+        <p>Rajinikanth</p>
+      </div>
+      <div class="cast-member">
+        <img src="yash.jpeg" alt="Actor 7">
+        <p>Yash</p>
+      </div>
+      <div class="cast-member">
+        <img src="suriya.jpeg" alt="Actor 7">
+        <p>Suriya</p>
+      </div>
+      <div class="cast-member">
+        <img src="kamal hasan.jpeg" alt="Actor 7">
+        <p>Kamal Haasan</p>
+      </div>
+      <div class="cast-member">
+        <img src="salman.jpeg" alt="Actor 7">
+        <p>Salman Khan</p>
+      </div>
+      <div class="cast-member">
+        <img src="hrithik.jpeg" alt="Actor 7">
+        <p> Hritikh Roshan</p>
+      </div>
+      <div class="cast-member">
+        <img src="tiger shroff.jpeg" alt="Actor 7">
+        <p>Tiger Shroff</p>
+      </div>
+      <div class="cast-member">
+        <img src="sushant.jpeg" alt="Actor 7">
+        <p>Sushant Singh Rajput</p>
+      </div>
+      <div class="cast-member">
+        <img src="kajal.jpeg" alt="Actor 7">
+        <p>Kajal</p>
+      </div>
+      <div class="cast-member">
+        <img src="rakul.jpeg" alt="Actor 7">
+        <p>Rakul</p>
+      </div>
+      <div class="cast-member">
+        <img src="sree leela.jpeg" alt="Actor 7">
+        <p>Sri Leela</p>
+      </div>
+      <div class="cast-member">
+        <img src="kiara.jpeg" alt="Actor 7">
+        <p>Kiara Advani</p>
+      </div>
+      <div class="cast-member">
+        <img src="alia.jpeg" alt="Actor 7">
+        <p>Alia Bhatt</p>
+      </div>
+      <div class="cast-member">
+        <img src="samantha.jpeg" alt="Actor 7">
+        <p>Samantha</p>
+      </div>
+      <div class="cast-member">
+        <img src="anuskha.jpeg" alt="Actor 7">
+        <p>Anushka</p>
+      </div>
+      <div class="cast-member">
+        <img src="sruti hasan.jpeg" alt="Actor 7">
+        <p>Shruthi Hasan</p>
+      </div>
+      <div class="cast-member">
+        <img src="keerty suresh.jpeg" alt="Actor 7">
+        <p>Keerty Suresh</p>
+      </div>
+      <!-- Add more cast members as needed -->
+    </div>
+    <h2>Crew:</h2>
+    <div class="crew-container">
+      <div class="crew-member">
+        <img src="lokesh kanakaraj.jpeg" alt="Director" class="crew-image">
+        <p>Lokesh Kanakaraj</p>
+        <p>Director</p>
+      </div>
+      <div class="crew-member">
+        <img src="dvv.jpeg" alt="Producer" class="crew-image">
+        <p>DVV Productions</p>
+        <p>Producer</p>
+      </div>
+      <div class="crew-member">
+        <img src="anirudh.jpeg" alt="Musician" class="crew-image">
+        <p>Anirudh</p>
+        <p>Musician</p>
+      </div>
+      <div class="crew-member">
+        <img src="ravi.jpeg" alt="Cinematographer" class="crew-image">
+        <p>K.Ravi</p>
+        <p>Cinematographer</p>
+      </div>
+
+      <!-- Add more crew members as needed -->
+    </div>
+    <h2>You Might Also Like:</h2>
+    <main class="main-content">
+        <section class="category-section">
+          <div>
+              <div class="movie-card">
+                <a href="2.html">
+                <img src="GameChanger.jpg" alt="Movie 1 poster">
+                <h3>Game Changer</h3>
+              </div>
+            </a>
+            <div class="movie-card">
+              <a href="2.html">
+                <img src="Devara.jpg" alt="Movie 2 poster">
+                <h3>Devara</h3>
+              </a>
+            </div>
+            <div class="movie-card">
+              <a href="2.html">
+                <img src="Kalki.jpg" alt="Movie 3 poster">
+                <h3>Kalki AD2989</h3>
+              </a>
+            </div>
+            <div class="movie-card">
+              <a href="2.html">
+                <img src="Pushpa2.jpg" alt="Movie 4 poster">
+                <h3>PUSHPA2</h3>
+              </a>
+            </div>
+            <div class="movie-card">
+              <a href="2.html">
+                <img src="OG_Poster.jpg" alt="Movie 5 poster">
+                <h3>OG</h3>
+              </a>
+            </div>
+            <img src="contact.png" style="width:1200px;">
+            <img src="end.png" style="width:1200px;">
+    </body>
+    </html>
